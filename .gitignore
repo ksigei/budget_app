@@ -34,3 +34,5 @@ yarn-error.log
 yarn-debug.log*
 .env
 .DS_Store
+/app/assets/builds/*
+!/app/assets/builds/.keep
