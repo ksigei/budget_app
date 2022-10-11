@@ -72,3 +72,8 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.0"
+
+# devise
+gem "devise"
+# letter_opener
+gem "letter_opener_web", "~> 1.4", ">= 1.4.1"
