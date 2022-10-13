@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  resources :transactions
+  resources :categories
   devise_for :users
   resources :users
+  root 'categories#index'
 
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  
+  # devise_scope :user do
+  #   root to: "devise/sessions#new"
+  # end
 
 end

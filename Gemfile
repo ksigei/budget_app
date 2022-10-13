@@ -77,3 +77,4 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "devise"
 # letter_opener
 gem "letter_opener_web", "~> 1.4", ">= 1.4.1"
+
