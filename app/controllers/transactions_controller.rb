@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions or /transactions.json
   def index
-    @transactions = Transaction.joins(:category).where(categories: { user_id: current_user.id })
+    @transactions = Transaction.joins(:category).where(categories: { user_id: current_user.id }).order('created_at DESC')
   end
 
   # GET /transactions/1 or /transactions/1.json

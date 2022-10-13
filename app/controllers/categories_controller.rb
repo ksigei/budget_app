@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.where(user_id: current_user.id)
-    @transactions = Transaction.joins(:category).where(categories: { user_id: current_user.id })
+    @transactions = Transaction.joins(:category).where(categories: { user_id: current_user.id }).order('created_at DESC')
 
     @total = 0
     @transactions.each do |transaction|
