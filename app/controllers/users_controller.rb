@@ -17,6 +17,10 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    # edit only if current_user is the user
+    if current_user != @user
+      redirect_to root_url
+    end
   end
 
   # POST /users or /users.json

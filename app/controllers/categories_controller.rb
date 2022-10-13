@@ -6,10 +6,23 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.where(user_id: current_user.id)
-  end
+    # For each category, the user can see their name, icon and the total amount of all the transactions that belongs to that category.
+    # @transactions = Transaction.where(user_id: current_user.id)
+    @transactions = Transaction.joins(:category).where(categories: { user_id: current_user.id })
+    
+    # The user can also see the total amount of all the transactions that belongs to that category.
+    @total = 0
+    @transactions.each do |transaction|
+      @total += transaction.amount
+    end
 
+
+  end
+    
   # GET /categories/1 or /categories/1.json
   def show
+    # When the user clicks (or taps) on a category item, the application navigates to the transactions page for that category.
+    @transactions = Transaction.where(category_id: @category.id)
   end
 
   # GET /categories/new
@@ -19,7 +32,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    
+
   end
 
   # POST /categories or /categories.json
