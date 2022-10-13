@@ -15,7 +15,6 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = current_user.transactions.build
-    # choose category
     @categories = current_user.categories
   end
 
