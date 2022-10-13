@@ -6,11 +6,8 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.where(user_id: current_user.id)
-    # For each category, the user can see their name, icon and the total amount of all the transactions that belongs to that category.
-    # @transactions = Transaction.where(user_id: current_user.id)
     @transactions = Transaction.joins(:category).where(categories: { user_id: current_user.id })
     
-    # The user can also see the total amount of all the transactions that belongs to that category.
     @total = 0
     @transactions.each do |transaction|
       @total += transaction.amount
@@ -21,7 +18,6 @@ class CategoriesController < ApplicationController
     
   # GET /categories/1 or /categories/1.json
   def show
-    # When the user clicks (or taps) on a category item, the application navigates to the transactions page for that category.
     @transactions = Transaction.where(category_id: @category.id)
   end
 
@@ -76,13 +72,11 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      # @category = Category.find(params[:id])
       @category = Category.find_by(id: params[:id], user_id: current_user.id)
     end
 
     # Only allow a list of trusted parameters through.
     def category_params
-      # params.require(:category).permit(:name, :icon, :user_id)
       params.require(:category).permit(:name, :icon).merge(user_id: current_user.id)
     end
 end
