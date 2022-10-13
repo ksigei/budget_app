@@ -5,7 +5,9 @@ class TransactionsController < ApplicationController
 
   # GET /transactions or /transactions.json
   def index
+    # rubocop:disable Layout/LineLength
     @transactions = Transaction.joins(:category).where(categories: { user_id: current_user.id }).order('created_at DESC')
+    # rubocop:enable Layout/LineLength
   end
 
   # GET /transactions/1 or /transactions/1.json

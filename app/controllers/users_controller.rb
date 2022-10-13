@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = User.includes(:categories).where(id: current_user.id).order('created_at DESC')
   end
 
   # GET /users/1 or /users/1.json
