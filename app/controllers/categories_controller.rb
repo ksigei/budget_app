@@ -8,9 +8,12 @@ class CategoriesController < ApplicationController
     @categories = Category.includes(:transactions).where(user_id: current_user.id).order('created_at DESC')
 
     @transactions = Transaction.includes(:category).joins(:category).where(categories: { user_id: current_user.id })
-    @transactions.each do |transaction|
-      @total += transaction.amount
+     
+    # total_amount for each category
+    @categories.each do |category|
+      category.total_amount = @transactions.where(category_id: category.id).sum(:amount)
     end
+
   end
 
   # GET /categories/1 or /categories/1.json
