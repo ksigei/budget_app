@@ -79,3 +79,6 @@ gem 'devise'
 gem 'letter_opener_web', '~> 1.4', '>= 1.4.1'
 # image
 gem 'mini_magick'
+
+# rspec
+gem 'rspec-rails', '~> 5.0'
