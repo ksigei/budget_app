@@ -6,12 +6,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   </head>
 
   <body>
+    <div class="container mx-auto px-0">
+      <%= render "partials/navbar" %>
+    </div>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>

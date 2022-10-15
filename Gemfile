@@ -82,3 +82,5 @@ gem 'mini_magick'
 
 # rspec
 gem 'rspec-rails', '~> 5.0'
+# ffi
+gem 'ffi', '~> 1.15.0'

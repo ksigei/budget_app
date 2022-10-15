@@ -5,12 +5,11 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Categories</h1>
-    <%= link_to 'New category', new_category_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
   <div id="categories" class="min-w-full">
       <%= render @categories %>
   </div>
-
-
+  <%= link_to "Add Category <i class='uil uil-plus'></i>".html_safe, new_category_path, class: "rounded-full py-3 px-5 bg-blue-600 text-white inline-block font-medium fixed bottom-0 right-0 mr-5 mb-5" %>
+  
 
 </div>

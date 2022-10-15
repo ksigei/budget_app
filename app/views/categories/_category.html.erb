@@ -1,29 +1,31 @@
 <div id="<%= dom_id category %>">
-  <%= link_to transactions_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" do %>
-    <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= category.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Icon:</strong>
-    <img src="<%= category.icon %>" alt="<%= category.name %>" class="w-13 h-13">
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= category.user.name %>
-  </p>
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Total amount:</strong>
-    <%= category.total_amount %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this category", category, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this category', edit_category_path(category), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-  <% end %>
-  
+<table class=" w-full table-auto">
+  <thead>
+    <tr>
+       <th class="px-4 py-2">Icon</th>
+        <th class="px-4 py-2">Name</th>
+        <th class="px-4 py-2">User</th>
+        <th class="px-4 py-2">Amount</th>
+        <th class="px-4 py-2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border px-4 py-2"> <img src="<%= category.icon %>" alt="<%= category.name %>" class="w-12 h-15"></td>
+      <td class="border px-4 py-2">
+      <%= link_to transaction_path(category) do %>
+        <%= category.name %>
+      <% end %>
+      </td>
+      <td class="border px-4 py-2"><%= category.user.name %></td>
+      <td class="border px-4 py-2">$<%= category.total_amount %></td>
+      <td class="border px-4 py-2 text-center flex justify-center">
+        <%= link_to "<i class='uil uil-eye'></i>".html_safe, category_path(category), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= button_to "<i class='uil uil-pen'></i>".html_safe, edit_category_path(category), method: :get, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+        <%= button_to "<i class='uil uil-trash-alt'></i>".html_safe, category_path(category), method: :delete, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 </div>
+
