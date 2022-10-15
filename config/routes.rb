@@ -7,11 +7,6 @@ Rails.application.routes.draw do
   resources :entities
   devise_for :users
   resources :users do
-    collection do
-      get 'after_sign_out_for'
-    end
+    resources :groups, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end
-
-  get '/users/sign_in' => 'groups#index'
-  get '/users/sign_out' => 'groups#index'
 end
