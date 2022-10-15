@@ -7,7 +7,6 @@
           <%=  group.name %>
         <% end %>
       </td>
-      <td class="border px-4 py-2"><%=  group.user.name %></td>
       <td class="border px-4 py-2">$<%= group.entities.sum(&:amount) %></td>
       <td class="border px-4 py-2 text-center flex justify-center">
         <%= link_to "<i class='uil uil-eye'></i>".html_safe,  group_path( group), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

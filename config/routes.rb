@@ -3,13 +3,9 @@ Rails.application.routes.draw do
     resources :entities, only: [:index, :new, :create, :edit, :update, :destroy]
   end
   resources :entities
-  resources :transactions
-  resources :categories
   devise_for :users
+  root to: 'groups#index'
   resources :users
-  
-  root 'groups#index'
-
   
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
