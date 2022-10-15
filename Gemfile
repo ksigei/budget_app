@@ -84,3 +84,5 @@ gem 'mini_magick'
 gem 'rspec-rails', '~> 5.0'
 # ffi
 gem 'ffi', '~> 1.15.0'
+
+gem 'rails_12factor', group: :production
