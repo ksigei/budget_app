@@ -48,6 +48,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def after_sign_out_for(_resources)
+    redirect_to new_user_session
+  end
+
   private
 
   def set_user

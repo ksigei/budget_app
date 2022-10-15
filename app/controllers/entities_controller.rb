@@ -1,7 +1,7 @@
 class EntitiesController < ApplicationController
   before_action :set_entity, only: %i[show edit update destroy]
   before_action :authenticate_user!
-  
+
   def index
     @entities = Entity.where(group_id: params[:group_id]).where(user_id: current_user.id).order(created_at: :desc)
   end
