@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :entities
+  resources :groups
   resources :transactions
   resources :categories
   devise_for :users
   resources :users
-  root 'categories#index'
+  root 'groups#index'
 
   
   # devise_scope :user do

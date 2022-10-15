@@ -6,4 +6,6 @@ class User < ApplicationRecord
          :confirmable
   has_many :categories
   has_many :transactions, through: :categories
+  has_many :groups
+  has_many :entities, through: :groups
 end
