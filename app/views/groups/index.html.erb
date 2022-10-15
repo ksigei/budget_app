@@ -1,0 +1,19 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Categories</h1>
+  </div>
+
+  
+   <% if @groups.count > 0 %>
+   <div id="groups" class="min-w-full">
+    <%= render @groups %>
+  </div>
+  <% else %>
+    <p class="text-center text-gray-500 font-medium text-2xl">Welcome, add Categories below</p>
+  <% end %>
+</div>
+<%= link_to "Add Category <i class='uil uil-plus'></i>".html_safe, new_group_path, class: "rounded-full py-3 px-5 bg-blue-600 text-white inline-block font-medium fixed bottom-0 right-0 mr-5 mb-5" %>

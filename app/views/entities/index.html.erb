@@ -1,0 +1,21 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <%= link_to "<i class='uil uil-arrow-left'></i>".html_safe, groups_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="flex justify-between items-center">
+    <h2 class="font-bold text-4xl items-center">Most Recent</h2>
+     <h1>$<%= @entities.sum(&:amount) %></h1>
+    </div>
+
+  <% if @entities.count > 0 %>
+  <div id="entities" class="min-w-full">
+    <%= render @entities %>
+  </div>
+
+  <% else %>
+    <p class="text-center text-gray-500 font-medium text-2xl">No transactions for this category yet, add some below</p>
+  <% end %>
+
+</div>
+<%= link_to "Add Transaction <i class='uil uil-plus'></i>".html_safe, new_entity_path, class: "rounded-full py-3 px-5 bg-blue-600 text-white inline-block font-medium fixed bottom-0 right-0 mr-5 mb-5" %>

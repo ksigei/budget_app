@@ -1,0 +1,16 @@
+
+<table class=" w-full table-auto">
+  <tbody>
+    <tbody>
+      <tr>
+        <td class="border px-4 py-2">
+        <h3><%= link_to entity_path(entity) do %>
+          <%= entity.name %>
+        <% end %>
+        </h3>
+        <h3><%= entity.updated_at %></h3>
+        
+        </td>
+        <td class="border px-4 py-2">$<%= entity.amount %></td>
+      </tr>
+</tbody>

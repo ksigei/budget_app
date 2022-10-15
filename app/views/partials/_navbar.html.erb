@@ -1,0 +1,24 @@
+<nav class="container flex justify-around py-8 mx-auto bg-blue-500 text-white font-bold">
+  <div class="flex items-center">
+    <h3 class="text-2xl font-medium text-white-500">MyBudget</h3>
+  </div>
+  <div class="items-center hidden space-x-8 lg:flex">
+    <%= link_to "<i class='uil uil-home text-2xl'></i>".html_safe, root_path %>
+    <%= link_to "<i class='uil uil-list-ul text-2xl'></i>".html_safe, groups_path %>
+    <%= link_to "<i class='uil uil-credit-card text-2xl'></i>".html_safe, entities_path %>
+    <% if user_signed_in? %>
+      <h3 class="text-2xl font-medium text-white-500">Welcome, <%= current_user.email %></h3>
+    <% end %>
+  </div>
+  <div class="flex items-center space-x-4">
+    <% if user_signed_in? %>
+      <h3 class="text-2xl font-medium hidden text-white-500">Welcome, <%= current_user.email %></h3>
+      <%= link_to "<i class='uil uil-user text-2xl'></i>".html_safe, user_path(current_user) %>
+      <%= link_to "<i class='uil uil-sign-out-alt text-2xl'></i>".html_safe, destroy_user_session_path, method: :delete %>
+    <% end %>
+    <% unless user_signed_in? %>
+      <%= link_to "<i class='uil uil-sign-in-alt text-2xl'></i>".html_safe, new_user_session_path %>
+      <%= link_to "<i class='uil uil-user-plus text-2xl'></i>".html_safe, new_user_registration_path %>
+    <% end %>
+  </div>
+</nav>
