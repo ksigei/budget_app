@@ -1,18 +1,12 @@
 <table class=" w-full table-auto">
-  <thead>
-    <tr>
-       <th class="px-4 py-2">Icon</th>
-        <th class="px-4 py-2">Name</th>
-        <th class="px-4 py-2">User</th>
-        <th class="px-4 py-2">Amount</th>
-        <th class="px-4 py-2">Actions</th>
-    </tr>
-  </thead>
   <tbody>
+    <% @groups.each do |group| %>
     <tr>
       <td class="border px-4 py-2"> <img src="<%=  group.icon %>" alt="<%=  group.name %>" class="w-12 h-15"></td>
       <td class="border px-4 py-2">
+       <%= link_to group_entities_path(group), class: "card mb-2" do %>
           <%=  group.name %>
+        <% end %>
       </td>
       <td class="border px-4 py-2"><%=  group.user.name %></td>
       <td class="border px-4 py-2">$</td>
@@ -22,7 +16,7 @@
         <%= button_to "<i class='uil uil-trash-alt'></i>".html_safe,  group_path( group), method: :delete, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
       </td>
     </tr>
+      <% end %>
   </tbody>
-
-
 </table>
+
