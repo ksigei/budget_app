@@ -1,6 +1,5 @@
 <table class=" w-full table-auto">
   <tbody>
-    <% @groups.each do |group| %>
     <tr>
       <td class="border px-4 py-2"> <img src="<%=  group.icon %>" alt="<%=  group.name %>" class="w-12 h-15"></td>
       <td class="border px-4 py-2">
@@ -16,7 +15,6 @@
         <%= button_to "<i class='uil uil-trash-alt'></i>".html_safe,  group_path( group), method: :delete, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
       </td>
     </tr>
-      <% end %>
-  </tbody>
+    </tbody>
 </table>
 
