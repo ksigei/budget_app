@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   resources :entities
   devise_for :users
   root to: 'groups#index'
-  resources :users
+  resources :users do
+    collection do
+      get 'after_sign_out_for'
+    end
+  end
+
   get '/users/sign_in' => 'groups#index'
   get '/users/sign_out' => 'groups#index'
-  
- 
-
 end
