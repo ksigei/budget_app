@@ -8,7 +8,7 @@
 ## Built With
 
 - Major: Ruby, HTML,CSS
-- Frameworks: `Rails`, `Bootstrap5`
+- Frameworks: `Rails`, `Tailwind CSS`
 - Libraries: `Cancancan`, `Devise`
 - Technologies: Git, Gitflow, Linters, Github, PostgreSql, Rspec, Capybara, Robocop
 
